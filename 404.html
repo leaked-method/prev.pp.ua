@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Page Not Found</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0b1020; --bg2:#0e1630; --glass:rgba(255,255,255,.08);
+    }
+    body{ font-family:'Outfit', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    /* Soft animated blob glow */
+    .blob {
+      filter: blur(60px);
+      animation: float 18s ease-in-out infinite;
+      opacity:.55;
+    }
+    .blob:nth-child(2){ animation-delay: -8s; }
+    @keyframes float{
+      0%,100%{ transform: translate(0,0) scale(1); }
+      50%    { transform: translate(20px,-30px) scale(1.08); }
+    }
+    /* Gentle entrance */
+    .fade-up{ animation: fadeUp .6s ease both; }
+    @keyframes fadeUp{
+      from { opacity:0; transform: translateY(8px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    /* Subtle noise overlay */
+    .grain:before{
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.07; mix-blend:soft-light;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[radial-gradient(1200px_600px_at_20%_0%,#1b2b7c_0%,transparent_55%),radial-gradient(1000px_500px_at_100%_100%,#0ea5e9_0%,transparent_45%),linear-gradient(180deg,var(--bg1),var(--bg2))] text-white relative overflow-hidden grain">
+
+  <!-- Animated blobs -->
+  <div class="absolute -top-20 -left-10 w-[38rem] h-[38rem] rounded-full bg-cyan-400/30 blob"></div>
+  <div class="absolute bottom-[-5rem] right-[-5rem] w-[34rem] h-[34rem] rounded-full bg-indigo-500/30 blob"></div>
+
+  <!-- Page container -->
+  <main class="relative z-10 max-w-3xl mx-auto px-6 py-16 sm:py-24">
+    <!-- Card -->
+    <section class="fade-up rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,.25)] p-8 sm:p-12">
+      <!-- 404 Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs uppercase tracking-widest mb-6">
+        <span class="block w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+        Error 404
+      </div>
+
+      <!-- Big 404 headline -->
+      <h1 class="text-6xl sm:text-7xl md:text-8xl font-extrabold leading-none">
+        <span class="bg-clip-text text-transparent bg-gradient-to-br from-white via-cyan-100 to-sky-300">4<span class="text-cyan-300 drop-shadow">0</span>4</span>
+      </h1>
+
+      <!-- Sub headline -->
+      <p class="mt-5 text-lg sm:text-xl text-white/80 max-w-2xl">
+        Oops—looks like this page took a wrong turn. It may have moved, or the link is broken.
+      </p>
+
+      <!-- Quick actions -->
+      <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+        <button onclick="history.back()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white text-slate-900 px-5 py-3 font-semibold shadow hover:shadow-lg hover:-translate-y-0.5 transition">
+          ← Go Back
+        </button>
+
+        <a href="https://alink.pp.ua/duckist" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-semibold text-white hover:bg-white/20 hover:-translate-y-0.5 transition">
+          Home
+        </a>
+
+        <!-- Search your site -->
+        <form action="https://alink.pp.ua/duckist" method="GET" class="relative flex-1">
+          <input
+            type="search" name="q" placeholder="Search our site…"
+            class="w-full rounded-xl bg-white/10 border border-white/15 focus:border-white/30 outline-none px-4 py-3 placeholder-white/50 text-white"
+            />
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/60">⏎</span>
+        </form>
+      </div>
+
+      <!-- Helpful links -->
+      <div class="mt-8 grid sm:grid-cols-3 gap-3">
+        <a href="https://alink.pp.ua/duckist" class="group rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition">
+          <div class="font-semibold">Docs</div>
+          <div class="text-sm text-white/70">Guides and references</div>
+        </a>
+        <a href="https://alink.pp.ua/duckist" class="group rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition">
+          <div class="font-semibold">Contact</div>
+          <div class="text-sm text-white/70">Get support from our team</div>
+        </a>
+        <a href="https://alink.pp.ua/duckist" class="group rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition">
+          <div class="font-semibold">Explore</div>
+          <div class="text-sm text-white/70">Discover popular pages</div>
+        </a>
+      </div>
+
+      <!-- Tiny footer -->
+      <p class="mt-8 text-xs text-white/60">
+        If you think this is a mistake, please <a href="/contact" class="underline decoration-dotted hover:decoration-solid">report the issue</a>.
+      </p>
+    </section>
+
+    <!-- Mini mascot / illustration -->
+    <div class="fade-up mt-10 flex items-center gap-4 text-white/70">
+      <svg class="w-12 h-12 shrink-0" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="18" class="opacity-20" fill="white"/>
+        <path d="M20 36h24M24 28l8-8 8 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-70"/>
+        <path d="M26 42h12" stroke="white" stroke-width="2.5" stroke-linecap="round" class="opacity-60"/>
+      </svg>
+      <div>
+        <div class="font-semibold">Lost? No worries.</div>
+        <div class="text-sm">Use the search box or head back home. You’ll find your way.</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Optional keyboard: press "H" for Home -->
+  <script>
+    addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase()==='h') location.href='/';
+      if(e.key==='Escape') history.back();
+    });
+  </script>
+</body>
+</html>
